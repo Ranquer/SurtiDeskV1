@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.textCodigoEmpleado = new System.Windows.Forms.TextBox();
             this.textContraseña = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.labelCodigoDeEmpleado = new System.Windows.Forms.Label();
             this.labelContraseña = new System.Windows.Forms.Label();
             this.buttonEntrar = new System.Windows.Forms.Button();
@@ -51,11 +49,6 @@
             this.textContraseña.Name = "textContraseña";
             this.textContraseña.Size = new System.Drawing.Size(313, 20);
             this.textContraseña.TabIndex = 1;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // labelCodigoDeEmpleado
             // 
@@ -97,6 +90,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = global::SurtiDesk.Properties.Resources.logo_surtidora_header;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.buttonEntrar);
@@ -104,6 +100,7 @@
             this.Controls.Add(this.labelCodigoDeEmpleado);
             this.Controls.Add(this.textContraseña);
             this.Controls.Add(this.textCodigoEmpleado);
+            this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
@@ -118,7 +115,6 @@
 
         private System.Windows.Forms.TextBox textCodigoEmpleado;
         private System.Windows.Forms.TextBox textContraseña;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Label labelCodigoDeEmpleado;
         private System.Windows.Forms.Label labelContraseña;
         private System.Windows.Forms.Button buttonEntrar;

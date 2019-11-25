@@ -61,6 +61,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buscar Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar Cliente.Designer.cs">
+      <DependentUpon>Buscar Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Buscar Empleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar Empleado.Designer.cs">
+      <DependentUpon>Buscar Empleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Buscar Producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar Producto.Designer.cs">
+      <DependentUpon>Buscar Producto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultar Venta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultar Venta.Designer.cs">
+      <DependentUpon>Consultar Venta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Desktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,19 +97,94 @@
     <Compile Include="Inicio de secion.Designer.cs">
       <DependentUpon>Inicio de secion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modificar Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar Cliente.Designer.cs">
+      <DependentUpon>Modificar Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modificar Empleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar Empleado.Designer.cs">
+      <DependentUpon>Modificar Empleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modificar Producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar Producto.Designer.cs">
+      <DependentUpon>Modificar Producto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registrar Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar Cliente.Designer.cs">
+      <DependentUpon>Registrar Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar Empleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar Empleados.Designer.cs">
+      <DependentUpon>Registrar Empleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar Producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar Producto.Designer.cs">
+      <DependentUpon>Registrar Producto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registrar Venta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Registrar Venta.Designer.cs">
       <DependentUpon>Registrar Venta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporte Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte Cliente.Designer.cs">
+      <DependentUpon>Reporte Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte de producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte de producto.Designer.cs">
+      <DependentUpon>Reporte de producto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte Empleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte Empleados.Designer.cs">
+      <DependentUpon>Reporte Empleados.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Buscar Cliente.resx">
+      <DependentUpon>Buscar Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscar Empleado.resx">
+      <DependentUpon>Buscar Empleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscar Producto.resx">
+      <DependentUpon>Buscar Producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultar Venta.resx">
+      <DependentUpon>Consultar Venta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Desktop.resx">
       <DependentUpon>Desktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio de secion.resx">
       <DependentUpon>Inicio de secion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modificar Cliente.resx">
+      <DependentUpon>Modificar Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modificar Empleado.resx">
+      <DependentUpon>Modificar Empleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modificar Producto.resx">
+      <DependentUpon>Modificar Producto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -95,9 +194,28 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Registrar Cliente.resx">
+      <DependentUpon>Registrar Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar Empleados.resx">
+      <DependentUpon>Registrar Empleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar Producto.resx">
+      <DependentUpon>Registrar Producto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registrar Venta.resx">
       <DependentUpon>Registrar Venta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte Cliente.resx">
+      <DependentUpon>Reporte Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte de producto.resx">
+      <DependentUpon>Reporte de producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte Empleados.resx">
+      <DependentUpon>Reporte Empleados.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -113,13 +231,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BaseDeDatosSurtiDesk.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="BaseDeDatosSurtiDesk_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>BaseDeDatosSurtiDesk.mdf</DependentUpon>
-    </Content>
+    <None Include="Resources\logo_surtidora_header.png" />
+    <None Include="Resources\Surtidora Departamental.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -133,5 +246,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

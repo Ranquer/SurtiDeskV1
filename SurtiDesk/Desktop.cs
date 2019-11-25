@@ -17,6 +17,13 @@ namespace SurtiDesk
             InitializeComponent();
         }
 
+        private void registrarVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registrar_Venta registrar_Venta = new Registrar_Venta();
+            registrar_Venta.Show();
+            registrar_Venta.Focus();
+        }
+
         private void Desktop_Load(object sender, EventArgs e)
         {
             
@@ -39,10 +46,6 @@ namespace SurtiDesk
             inicioSecion.Show();
         }
 
-        private void registrarVentaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Registrar_Venta registrar_Venta = new Registrar_Venta();
-            registrar_Venta.Show();
-        }
+        
     }
 }

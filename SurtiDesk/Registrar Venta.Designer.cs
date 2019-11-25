@@ -41,6 +41,11 @@
             this.labelRFCCliente = new System.Windows.Forms.Label();
             this.labelNombreCliente = new System.Windows.Forms.Label();
             this.dataGridViewNota = new System.Windows.Forms.DataGridView();
+            this.CodigoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescripcionProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImporteProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxIVA = new System.Windows.Forms.TextBox();
             this.textBoxSubTotal = new System.Windows.Forms.TextBox();
             this.labelIVA = new System.Windows.Forms.Label();
@@ -49,11 +54,6 @@
             this.labelTotal = new System.Windows.Forms.Label();
             this.buttonVender = new System.Windows.Forms.Button();
             this.buttonSalir = new System.Windows.Forms.Button();
-            this.CodigoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescripcionProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantidadProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImporteProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNota)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +64,7 @@
             this.textBoxFolio.ReadOnly = true;
             this.textBoxFolio.Size = new System.Drawing.Size(207, 20);
             this.textBoxFolio.TabIndex = 0;
+            this.textBoxFolio.TextChanged += new System.EventHandler(this.textBoxFolio_TextChanged);
             // 
             // textBoxFecha
             // 
@@ -174,72 +175,6 @@
             this.dataGridViewNota.TabIndex = 14;
             this.dataGridViewNota.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNota_CellContentClick);
             // 
-            // textBoxIVA
-            // 
-            this.textBoxIVA.Location = new System.Drawing.Point(445, 595);
-            this.textBoxIVA.Name = "textBoxIVA";
-            this.textBoxIVA.Size = new System.Drawing.Size(100, 20);
-            this.textBoxIVA.TabIndex = 15;
-            // 
-            // textBoxSubTotal
-            // 
-            this.textBoxSubTotal.Location = new System.Drawing.Point(445, 622);
-            this.textBoxSubTotal.Name = "textBoxSubTotal";
-            this.textBoxSubTotal.Size = new System.Drawing.Size(100, 20);
-            this.textBoxSubTotal.TabIndex = 16;
-            // 
-            // labelIVA
-            // 
-            this.labelIVA.AutoSize = true;
-            this.labelIVA.Location = new System.Drawing.Point(415, 602);
-            this.labelIVA.Name = "labelIVA";
-            this.labelIVA.Size = new System.Drawing.Size(24, 13);
-            this.labelIVA.TabIndex = 17;
-            this.labelIVA.Text = "IVA";
-            // 
-            // labelSubTotal
-            // 
-            this.labelSubTotal.AutoSize = true;
-            this.labelSubTotal.Location = new System.Drawing.Point(386, 629);
-            this.labelSubTotal.Name = "labelSubTotal";
-            this.labelSubTotal.Size = new System.Drawing.Size(53, 13);
-            this.labelSubTotal.TabIndex = 18;
-            this.labelSubTotal.Text = "Sub Total";
-            // 
-            // textBoxTotal
-            // 
-            this.textBoxTotal.Location = new System.Drawing.Point(445, 649);
-            this.textBoxTotal.Name = "textBoxTotal";
-            this.textBoxTotal.Size = new System.Drawing.Size(100, 20);
-            this.textBoxTotal.TabIndex = 19;
-            // 
-            // labelTotal
-            // 
-            this.labelTotal.AutoSize = true;
-            this.labelTotal.Location = new System.Drawing.Point(404, 656);
-            this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(31, 13);
-            this.labelTotal.TabIndex = 20;
-            this.labelTotal.Text = "Total";
-            // 
-            // buttonVender
-            // 
-            this.buttonVender.Location = new System.Drawing.Point(33, 624);
-            this.buttonVender.Name = "buttonVender";
-            this.buttonVender.Size = new System.Drawing.Size(120, 23);
-            this.buttonVender.TabIndex = 21;
-            this.buttonVender.Text = "Vender";
-            this.buttonVender.UseVisualStyleBackColor = true;
-            // 
-            // buttonSalir
-            // 
-            this.buttonSalir.Location = new System.Drawing.Point(241, 620);
-            this.buttonSalir.Name = "buttonSalir";
-            this.buttonSalir.Size = new System.Drawing.Size(120, 23);
-            this.buttonSalir.TabIndex = 22;
-            this.buttonSalir.Text = "Salir";
-            this.buttonSalir.UseVisualStyleBackColor = true;
-            // 
             // CodigoProducto
             // 
             this.CodigoProducto.HeaderText = "Codigo";
@@ -277,6 +212,75 @@
             this.ImporteProducto.ReadOnly = true;
             this.ImporteProducto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ImporteProducto.Width = 83;
+            // 
+            // textBoxIVA
+            // 
+            this.textBoxIVA.Location = new System.Drawing.Point(445, 595);
+            this.textBoxIVA.Name = "textBoxIVA";
+            this.textBoxIVA.ReadOnly = true;
+            this.textBoxIVA.Size = new System.Drawing.Size(100, 20);
+            this.textBoxIVA.TabIndex = 15;
+            // 
+            // textBoxSubTotal
+            // 
+            this.textBoxSubTotal.Location = new System.Drawing.Point(445, 622);
+            this.textBoxSubTotal.Name = "textBoxSubTotal";
+            this.textBoxSubTotal.ReadOnly = true;
+            this.textBoxSubTotal.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSubTotal.TabIndex = 16;
+            // 
+            // labelIVA
+            // 
+            this.labelIVA.AutoSize = true;
+            this.labelIVA.Location = new System.Drawing.Point(415, 602);
+            this.labelIVA.Name = "labelIVA";
+            this.labelIVA.Size = new System.Drawing.Size(24, 13);
+            this.labelIVA.TabIndex = 17;
+            this.labelIVA.Text = "IVA";
+            // 
+            // labelSubTotal
+            // 
+            this.labelSubTotal.AutoSize = true;
+            this.labelSubTotal.Location = new System.Drawing.Point(386, 629);
+            this.labelSubTotal.Name = "labelSubTotal";
+            this.labelSubTotal.Size = new System.Drawing.Size(53, 13);
+            this.labelSubTotal.TabIndex = 18;
+            this.labelSubTotal.Text = "Sub Total";
+            // 
+            // textBoxTotal
+            // 
+            this.textBoxTotal.Location = new System.Drawing.Point(445, 649);
+            this.textBoxTotal.Name = "textBoxTotal";
+            this.textBoxTotal.ReadOnly = true;
+            this.textBoxTotal.Size = new System.Drawing.Size(100, 20);
+            this.textBoxTotal.TabIndex = 19;
+            // 
+            // labelTotal
+            // 
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Location = new System.Drawing.Point(404, 656);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(31, 13);
+            this.labelTotal.TabIndex = 20;
+            this.labelTotal.Text = "Total";
+            // 
+            // buttonVender
+            // 
+            this.buttonVender.Location = new System.Drawing.Point(33, 624);
+            this.buttonVender.Name = "buttonVender";
+            this.buttonVender.Size = new System.Drawing.Size(120, 23);
+            this.buttonVender.TabIndex = 21;
+            this.buttonVender.Text = "Vender";
+            this.buttonVender.UseVisualStyleBackColor = true;
+            // 
+            // buttonSalir
+            // 
+            this.buttonSalir.Location = new System.Drawing.Point(241, 620);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(120, 23);
+            this.buttonSalir.TabIndex = 22;
+            this.buttonSalir.Text = "Salir";
+            this.buttonSalir.UseVisualStyleBackColor = true;
             // 
             // Registrar_Venta
             // 

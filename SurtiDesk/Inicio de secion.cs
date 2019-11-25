@@ -14,6 +14,8 @@ namespace SurtiDesk
 {
     public partial class Form1 : Form
     {
+        MySqlConnection conexion = new MySqlConnection("server=127.0.0.1; database=surtidesk; Uid=root; pwd=cococo;");
+
         public Form1()
         {
             InitializeComponent();
@@ -27,19 +29,13 @@ namespace SurtiDesk
 
         private void buttonEntrar_Click(object sender, EventArgs e)
         {
-            string usser;
-            usser = textCodigoEmpleado.Text;
-            string pass;
-            pass = textContraseña.Text;
             Desktop deskt = new Desktop();
-            MySqlConnection conexion = new MySqlConnection("server=127.0.0.1; database=surtidesk; Uid=root; pwd=cococo;");
-            conexion.Open();
-
             MySqlCommand codigo = new MySqlCommand();
-            MySqlConnection conecta = new MySqlConnection();
 
+            conexion.Open();
             codigo.Connection = conexion;
-            codigo.CommandText = ("select *from Empleado where idEmpleado = '" + usser + "' and contra = '" + pass + "'");
+            codigo.CommandText = ("select *from Empleado where idEmpleado = '" + textCodigoEmpleado.Text + "' and contra = '" + textContraseña.Text + "'");
+
 
             MySqlDataReader leer = codigo.ExecuteReader();
             if (leer.Read())
@@ -51,6 +47,7 @@ namespace SurtiDesk
             {
                 MessageBox.Show("Usuario o contraseña incorrecto");
             }
+
             conexion.Close();
         }
     }

@@ -49,6 +49,7 @@
             this.textContraseña.Name = "textContraseña";
             this.textContraseña.Size = new System.Drawing.Size(313, 20);
             this.textContraseña.TabIndex = 1;
+            this.textContraseña.UseSystemPasswordChar = true;
             // 
             // labelCodigoDeEmpleado
             // 
@@ -107,6 +108,7 @@
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SurtiDesk Inicio de seción";
             this.ResumeLayout(false);
             this.PerformLayout();

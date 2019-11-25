@@ -78,8 +78,9 @@
             // registrarVentaToolStripMenuItem
             // 
             this.registrarVentaToolStripMenuItem.Name = "registrarVentaToolStripMenuItem";
-            this.registrarVentaToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.registrarVentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.registrarVentaToolStripMenuItem.Text = "Registrar Venta";
+            this.registrarVentaToolStripMenuItem.Click += new System.EventHandler(this.registrarVentaToolStripMenuItem_Click);
             // 
             // reporteDeVentaToolStripMenuItem
             // 
@@ -199,6 +200,7 @@
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // Desktop
             // 
@@ -213,6 +215,7 @@
             this.MinimizeBox = false;
             this.Name = "Desktop";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Escritorio";
             this.Load += new System.EventHandler(this.Desktop_Load);
             this.menuPrincipal.ResumeLayout(false);

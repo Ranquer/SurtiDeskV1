@@ -16,5 +16,10 @@ namespace SurtiDesk
         {
             InitializeComponent();
         }
+
+        private void dataGridViewNota_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

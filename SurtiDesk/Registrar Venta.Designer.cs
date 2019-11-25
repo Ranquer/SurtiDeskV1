@@ -41,11 +41,6 @@
             this.labelRFCCliente = new System.Windows.Forms.Label();
             this.labelNombreCliente = new System.Windows.Forms.Label();
             this.dataGridViewNota = new System.Windows.Forms.DataGridView();
-            this.CodigoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescripcionProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantidadProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImporteProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxIVA = new System.Windows.Forms.TextBox();
             this.textBoxSubTotal = new System.Windows.Forms.TextBox();
             this.labelIVA = new System.Windows.Forms.Label();
@@ -54,6 +49,11 @@
             this.labelTotal = new System.Windows.Forms.Label();
             this.buttonVender = new System.Windows.Forms.Button();
             this.buttonSalir = new System.Windows.Forms.Button();
+            this.CodigoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescripcionProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImporteProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNota)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,6 +61,7 @@
             // 
             this.textBoxFolio.Location = new System.Drawing.Point(33, 68);
             this.textBoxFolio.Name = "textBoxFolio";
+            this.textBoxFolio.ReadOnly = true;
             this.textBoxFolio.Size = new System.Drawing.Size(207, 20);
             this.textBoxFolio.TabIndex = 0;
             // 
@@ -68,6 +69,7 @@
             // 
             this.textBoxFecha.Location = new System.Drawing.Point(342, 68);
             this.textBoxFecha.Name = "textBoxFecha";
+            this.textBoxFecha.ReadOnly = true;
             this.textBoxFecha.Size = new System.Drawing.Size(207, 20);
             this.textBoxFecha.TabIndex = 1;
             // 
@@ -75,6 +77,7 @@
             // 
             this.textBoxCodigoEmpleado.Location = new System.Drawing.Point(33, 179);
             this.textBoxCodigoEmpleado.Name = "textBoxCodigoEmpleado";
+            this.textBoxCodigoEmpleado.ReadOnly = true;
             this.textBoxCodigoEmpleado.Size = new System.Drawing.Size(207, 20);
             this.textBoxCodigoEmpleado.TabIndex = 2;
             // 
@@ -82,6 +85,7 @@
             // 
             this.textBoxNombreEmpleado.Location = new System.Drawing.Point(342, 178);
             this.textBoxNombreEmpleado.Name = "textBoxNombreEmpleado";
+            this.textBoxNombreEmpleado.ReadOnly = true;
             this.textBoxNombreEmpleado.Size = new System.Drawing.Size(207, 20);
             this.textBoxNombreEmpleado.TabIndex = 3;
             // 
@@ -132,6 +136,7 @@
             // 
             this.textBoxNombreCliente.Location = new System.Drawing.Point(342, 121);
             this.textBoxNombreCliente.Name = "textBoxNombreCliente";
+            this.textBoxNombreCliente.ReadOnly = true;
             this.textBoxNombreCliente.Size = new System.Drawing.Size(207, 20);
             this.textBoxNombreCliente.TabIndex = 9;
             // 
@@ -167,36 +172,7 @@
             this.dataGridViewNota.RowHeadersVisible = false;
             this.dataGridViewNota.Size = new System.Drawing.Size(516, 346);
             this.dataGridViewNota.TabIndex = 14;
-            // 
-            // CodigoProducto
-            // 
-            this.CodigoProducto.HeaderText = "Codigo";
-            this.CodigoProducto.Name = "CodigoProducto";
-            this.CodigoProducto.Width = 70;
-            // 
-            // DescripcionProducto
-            // 
-            this.DescripcionProducto.HeaderText = "Descripcion Producto";
-            this.DescripcionProducto.Name = "DescripcionProducto";
-            this.DescripcionProducto.Width = 220;
-            // 
-            // PrecioProducto
-            // 
-            this.PrecioProducto.HeaderText = "Precio";
-            this.PrecioProducto.Name = "PrecioProducto";
-            this.PrecioProducto.Width = 70;
-            // 
-            // CantidadProducto
-            // 
-            this.CantidadProducto.HeaderText = "Cantidad";
-            this.CantidadProducto.Name = "CantidadProducto";
-            this.CantidadProducto.Width = 70;
-            // 
-            // ImporteProducto
-            // 
-            this.ImporteProducto.HeaderText = "Importe";
-            this.ImporteProducto.Name = "ImporteProducto";
-            this.ImporteProducto.Width = 83;
+            this.dataGridViewNota.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNota_CellContentClick);
             // 
             // textBoxIVA
             // 
@@ -264,6 +240,44 @@
             this.buttonSalir.Text = "Salir";
             this.buttonSalir.UseVisualStyleBackColor = true;
             // 
+            // CodigoProducto
+            // 
+            this.CodigoProducto.HeaderText = "Codigo";
+            this.CodigoProducto.Name = "CodigoProducto";
+            this.CodigoProducto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CodigoProducto.Width = 70;
+            // 
+            // DescripcionProducto
+            // 
+            this.DescripcionProducto.HeaderText = "Descripcion Producto";
+            this.DescripcionProducto.Name = "DescripcionProducto";
+            this.DescripcionProducto.ReadOnly = true;
+            this.DescripcionProducto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.DescripcionProducto.Width = 220;
+            // 
+            // PrecioProducto
+            // 
+            this.PrecioProducto.HeaderText = "Precio";
+            this.PrecioProducto.Name = "PrecioProducto";
+            this.PrecioProducto.ReadOnly = true;
+            this.PrecioProducto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.PrecioProducto.Width = 70;
+            // 
+            // CantidadProducto
+            // 
+            this.CantidadProducto.HeaderText = "Cantidad";
+            this.CantidadProducto.Name = "CantidadProducto";
+            this.CantidadProducto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CantidadProducto.Width = 70;
+            // 
+            // ImporteProducto
+            // 
+            this.ImporteProducto.HeaderText = "Importe";
+            this.ImporteProducto.Name = "ImporteProducto";
+            this.ImporteProducto.ReadOnly = true;
+            this.ImporteProducto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ImporteProducto.Width = 83;
+            // 
             // Registrar_Venta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,6 +310,7 @@
             this.MinimizeBox = false;
             this.Name = "Registrar_Venta";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Registrar_Venta";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNota)).EndInit();
             this.ResumeLayout(false);
@@ -318,11 +333,6 @@
         private System.Windows.Forms.Label labelRFCCliente;
         private System.Windows.Forms.Label labelNombreCliente;
         private System.Windows.Forms.DataGridView dataGridViewNota;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ImporteProducto;
         private System.Windows.Forms.TextBox textBoxIVA;
         private System.Windows.Forms.TextBox textBoxSubTotal;
         private System.Windows.Forms.Label labelIVA;
@@ -331,5 +341,10 @@
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.Button buttonVender;
         private System.Windows.Forms.Button buttonSalir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ImporteProducto;
     }
 }

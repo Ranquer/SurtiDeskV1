@@ -19,7 +19,7 @@ namespace SurtiDesk
 
         private void Desktop_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void modificarClienteToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -30,6 +30,19 @@ namespace SurtiDesk
         private void registrarClienteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 inicioSecion = new Form1();
+            this.Close();
+            inicioSecion.Show();
+        }
+
+        private void registrarVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registrar_Venta registrar_Venta = new Registrar_Venta();
+            registrar_Venta.Show();
         }
     }
 }

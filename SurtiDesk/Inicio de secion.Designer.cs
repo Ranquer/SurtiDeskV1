@@ -76,6 +76,7 @@
             this.buttonEntrar.TabIndex = 5;
             this.buttonEntrar.Text = "Entrar";
             this.buttonEntrar.UseVisualStyleBackColor = true;
+            this.buttonEntrar.Click += new System.EventHandler(this.buttonEntrar_Click);
             // 
             // buttonSalir
             // 
@@ -85,6 +86,7 @@
             this.buttonSalir.TabIndex = 6;
             this.buttonSalir.Text = "Salir";
             this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
             // 
             // Form1
             // 

@@ -16,5 +16,19 @@ namespace SurtiDesk
         {
             InitializeComponent();
         }
+
+        private void buttonSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonEntrar_Click(object sender, EventArgs e)
+        {
+            string usser;
+            usser = textCodigoEmpleado.Text;
+            string pass;
+            pass = textContraseña.Text;
+            
+        }
     }
 }

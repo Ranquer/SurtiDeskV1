@@ -28,3 +28,4 @@ C:\Users\chemb\SurtiDeskV1\SurtiDesk\obj\Debug\SurtiDesk.csproj.GenerateResource
 C:\Users\chemb\SurtiDeskV1\SurtiDesk\obj\Debug\SurtiDesk.csproj.CopyComplete
 C:\Users\chemb\SurtiDeskV1\SurtiDesk\obj\Debug\SurtiDesk.exe
 C:\Users\chemb\SurtiDeskV1\SurtiDesk\obj\Debug\SurtiDesk.pdb
+C:\Users\chemb\SurtiDeskV1\SurtiDesk\obj\Debug\SurtiDesk.Cambiar_IVA.resources

@@ -12,18 +12,26 @@ namespace SurtiDesk
 {
     public partial class Desktop : Form
     {
-        int idEmpleado;
-        public Desktop(int idEmpleado)
+        int idEmpleado, permisos;
+        public Desktop(int idEmpleado, int permisos)
         {
             InitializeComponent();
             this.idEmpleado = idEmpleado;
+            this.permisos = permisos;
         }
 
         private void registrarVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Registrar_Venta registrar_Venta = new Registrar_Venta(idEmpleado);
-            registrar_Venta.Show();
-            registrar_Venta.Focus();
+            if(permisos == 5 || permisos == 0)
+            {
+                Registrar_Venta registrar_Venta = new Registrar_Venta(idEmpleado);
+                registrar_Venta.Show();
+                registrar_Venta.Focus();
+            }
+            else
+            {
+                MessageBox.Show("No tiene los permisos para ejecutar esta acción...");
+            }
         }
 
         private void Desktop_Load(object sender, EventArgs e)

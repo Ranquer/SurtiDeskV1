@@ -35,12 +35,11 @@ namespace SurtiDesk
             conexion.Open();
             codigo.Connection = conexion;
             codigo.CommandText = ("select *from Empleado where idEmpleado = '" + textCodigoEmpleado.Text + "' and contra = '" + textContraseña.Text + "'");
-
-
             MySqlDataReader leer = codigo.ExecuteReader();
+
             if (leer.Read())
             {
-                Desktop deskt = new Desktop(Int32.Parse(textCodigoEmpleado.Text));
+                Desktop deskt = new Desktop(Int32.Parse(textCodigoEmpleado.Text), Convert.ToInt32(leer["permisos"].ToString()));
                 this.Hide();
                 deskt.Show();
             }
@@ -48,7 +47,6 @@ namespace SurtiDesk
             {
                 MessageBox.Show("Usuario o contraseña incorrecto");
             }
-
             conexion.Close();
         }
 

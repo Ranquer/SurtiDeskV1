@@ -54,7 +54,8 @@
             this.labelTotal = new System.Windows.Forms.Label();
             this.buttonVender = new System.Windows.Forms.Button();
             this.buttonSalir = new System.Windows.Forms.Button();
-            this.buttonBuscar = new System.Windows.Forms.Button();
+            this.comboBoxMetodoDePago = new System.Windows.Forms.ComboBox();
+            this.label1TipoDePago = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNota)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,6 +135,7 @@
             this.textBoxRFCCliente.Size = new System.Drawing.Size(207, 20);
             this.textBoxRFCCliente.TabIndex = 8;
             this.textBoxRFCCliente.TextChanged += new System.EventHandler(this.textBoxRFCCliente_TextChanged);
+            this.textBoxRFCCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRFCCliente_KeyPress_1);
             // 
             // textBoxNombreCliente
             // 
@@ -175,7 +177,8 @@
             this.dataGridViewNota.RowHeadersVisible = false;
             this.dataGridViewNota.Size = new System.Drawing.Size(516, 365);
             this.dataGridViewNota.TabIndex = 14;
-            this.dataGridViewNota.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNota_CellContentClick);
+            this.dataGridViewNota.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNota_CellEndEdit);
+            this.dataGridViewNota.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewNota_KeyPress);
             // 
             // CodigoProducto
             // 
@@ -217,24 +220,26 @@
             // 
             // textBoxIVA
             // 
-            this.textBoxIVA.Location = new System.Drawing.Point(445, 595);
+            this.textBoxIVA.Location = new System.Drawing.Point(450, 613);
             this.textBoxIVA.Name = "textBoxIVA";
             this.textBoxIVA.ReadOnly = true;
             this.textBoxIVA.Size = new System.Drawing.Size(100, 20);
             this.textBoxIVA.TabIndex = 15;
+            this.textBoxIVA.TextChanged += new System.EventHandler(this.textBoxIVA_TextChanged);
             // 
             // textBoxSubTotal
             // 
-            this.textBoxSubTotal.Location = new System.Drawing.Point(445, 622);
+            this.textBoxSubTotal.Location = new System.Drawing.Point(449, 587);
             this.textBoxSubTotal.Name = "textBoxSubTotal";
             this.textBoxSubTotal.ReadOnly = true;
             this.textBoxSubTotal.Size = new System.Drawing.Size(100, 20);
             this.textBoxSubTotal.TabIndex = 16;
+            this.textBoxSubTotal.TextChanged += new System.EventHandler(this.textBoxSubTotal_TextChanged);
             // 
             // labelIVA
             // 
             this.labelIVA.AutoSize = true;
-            this.labelIVA.Location = new System.Drawing.Point(415, 602);
+            this.labelIVA.Location = new System.Drawing.Point(419, 620);
             this.labelIVA.Name = "labelIVA";
             this.labelIVA.Size = new System.Drawing.Size(24, 13);
             this.labelIVA.TabIndex = 17;
@@ -243,7 +248,7 @@
             // labelSubTotal
             // 
             this.labelSubTotal.AutoSize = true;
-            this.labelSubTotal.Location = new System.Drawing.Point(386, 629);
+            this.labelSubTotal.Location = new System.Drawing.Point(390, 594);
             this.labelSubTotal.Name = "labelSubTotal";
             this.labelSubTotal.Size = new System.Drawing.Size(53, 13);
             this.labelSubTotal.TabIndex = 18;
@@ -251,16 +256,17 @@
             // 
             // textBoxTotal
             // 
-            this.textBoxTotal.Location = new System.Drawing.Point(445, 649);
+            this.textBoxTotal.Location = new System.Drawing.Point(449, 642);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.ReadOnly = true;
             this.textBoxTotal.Size = new System.Drawing.Size(100, 20);
             this.textBoxTotal.TabIndex = 19;
+            this.textBoxTotal.TextChanged += new System.EventHandler(this.textBoxTotal_TextChanged);
             // 
             // labelTotal
             // 
             this.labelTotal.AutoSize = true;
-            this.labelTotal.Location = new System.Drawing.Point(404, 656);
+            this.labelTotal.Location = new System.Drawing.Point(408, 649);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(31, 13);
             this.labelTotal.TabIndex = 20;
@@ -268,31 +274,47 @@
             // 
             // buttonVender
             // 
-            this.buttonVender.Location = new System.Drawing.Point(33, 624);
+            this.buttonVender.Location = new System.Drawing.Point(33, 640);
             this.buttonVender.Name = "buttonVender";
             this.buttonVender.Size = new System.Drawing.Size(120, 23);
             this.buttonVender.TabIndex = 21;
             this.buttonVender.Text = "Vender";
             this.buttonVender.UseVisualStyleBackColor = true;
+            this.buttonVender.Click += new System.EventHandler(this.buttonVender_Click);
             // 
             // buttonSalir
             // 
-            this.buttonSalir.Location = new System.Drawing.Point(241, 620);
+            this.buttonSalir.Location = new System.Drawing.Point(241, 640);
             this.buttonSalir.Name = "buttonSalir";
             this.buttonSalir.Size = new System.Drawing.Size(120, 23);
             this.buttonSalir.TabIndex = 22;
             this.buttonSalir.Text = "Salir";
             this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
             // 
-            // buttonBuscar
+            // comboBoxMetodoDePago
             // 
-            this.buttonBuscar.Location = new System.Drawing.Point(246, 170);
-            this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(75, 23);
-            this.buttonBuscar.TabIndex = 23;
-            this.buttonBuscar.Text = "Buscar";
-            this.buttonBuscar.UseVisualStyleBackColor = true;
-            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
+            this.comboBoxMetodoDePago.FormattingEnabled = true;
+            this.comboBoxMetodoDePago.Items.AddRange(new object[] {
+            "Efectivo",
+            "Credito",
+            "Pago con Tarjeta",
+            "Puntos",
+            "Vales de despensa",
+            "Pagos Mixtos"});
+            this.comboBoxMetodoDePago.Location = new System.Drawing.Point(258, 591);
+            this.comboBoxMetodoDePago.Name = "comboBoxMetodoDePago";
+            this.comboBoxMetodoDePago.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxMetodoDePago.TabIndex = 23;
+            // 
+            // label1TipoDePago
+            // 
+            this.label1TipoDePago.AutoSize = true;
+            this.label1TipoDePago.Location = new System.Drawing.Point(182, 594);
+            this.label1TipoDePago.Name = "label1TipoDePago";
+            this.label1TipoDePago.Size = new System.Drawing.Size(70, 13);
+            this.label1TipoDePago.TabIndex = 24;
+            this.label1TipoDePago.Text = "Tipo de pago";
             // 
             // Registrar_Venta
             // 
@@ -301,7 +323,8 @@
             this.BackgroundImage = global::SurtiDesk.Properties.Resources.logo_surtidora_header;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(584, 681);
-            this.Controls.Add(this.buttonBuscar);
+            this.Controls.Add(this.label1TipoDePago);
+            this.Controls.Add(this.comboBoxMetodoDePago);
             this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.buttonVender);
             this.Controls.Add(this.labelTotal);
@@ -364,6 +387,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn CantidadProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn ImporteProducto;
-        private System.Windows.Forms.Button buttonBuscar;
+        private System.Windows.Forms.ComboBox comboBoxMetodoDePago;
+        private System.Windows.Forms.Label label1TipoDePago;
     }
 }

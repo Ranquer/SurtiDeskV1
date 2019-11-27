@@ -29,7 +29,7 @@ namespace SurtiDesk
 
         private void buttonEntrar_Click(object sender, EventArgs e)
         {
-            Desktop deskt = new Desktop();
+            
             MySqlCommand codigo = new MySqlCommand();
 
             conexion.Open();
@@ -40,6 +40,7 @@ namespace SurtiDesk
             MySqlDataReader leer = codigo.ExecuteReader();
             if (leer.Read())
             {
+                Desktop deskt = new Desktop(Int32.Parse(textCodigoEmpleado.Text));
                 this.Hide();
                 deskt.Show();
             }
@@ -49,6 +50,11 @@ namespace SurtiDesk
             }
 
             conexion.Close();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

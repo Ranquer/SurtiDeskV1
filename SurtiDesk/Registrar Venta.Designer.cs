@@ -54,6 +54,7 @@
             this.labelTotal = new System.Windows.Forms.Label();
             this.buttonVender = new System.Windows.Forms.Button();
             this.buttonSalir = new System.Windows.Forms.Button();
+            this.buttonBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNota)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +77,7 @@
             // 
             // textBoxCodigoEmpleado
             // 
-            this.textBoxCodigoEmpleado.Location = new System.Drawing.Point(33, 179);
+            this.textBoxCodigoEmpleado.Location = new System.Drawing.Point(33, 119);
             this.textBoxCodigoEmpleado.Name = "textBoxCodigoEmpleado";
             this.textBoxCodigoEmpleado.ReadOnly = true;
             this.textBoxCodigoEmpleado.Size = new System.Drawing.Size(207, 20);
@@ -84,7 +85,7 @@
             // 
             // textBoxNombreEmpleado
             // 
-            this.textBoxNombreEmpleado.Location = new System.Drawing.Point(342, 178);
+            this.textBoxNombreEmpleado.Location = new System.Drawing.Point(342, 118);
             this.textBoxNombreEmpleado.Name = "textBoxNombreEmpleado";
             this.textBoxNombreEmpleado.ReadOnly = true;
             this.textBoxNombreEmpleado.Size = new System.Drawing.Size(207, 20);
@@ -102,7 +103,7 @@
             // labelCodigoEmpleado
             // 
             this.labelCodigoEmpleado.AutoSize = true;
-            this.labelCodigoEmpleado.Location = new System.Drawing.Point(33, 160);
+            this.labelCodigoEmpleado.Location = new System.Drawing.Point(33, 100);
             this.labelCodigoEmpleado.Name = "labelCodigoEmpleado";
             this.labelCodigoEmpleado.Size = new System.Drawing.Size(90, 13);
             this.labelCodigoEmpleado.TabIndex = 5;
@@ -120,7 +121,7 @@
             // labelNombreEmpleado
             // 
             this.labelNombreEmpleado.AutoSize = true;
-            this.labelNombreEmpleado.Location = new System.Drawing.Point(342, 160);
+            this.labelNombreEmpleado.Location = new System.Drawing.Point(342, 100);
             this.labelNombreEmpleado.Name = "labelNombreEmpleado";
             this.labelNombreEmpleado.Size = new System.Drawing.Size(94, 13);
             this.labelNombreEmpleado.TabIndex = 7;
@@ -128,14 +129,15 @@
             // 
             // textBoxRFCCliente
             // 
-            this.textBoxRFCCliente.Location = new System.Drawing.Point(33, 121);
+            this.textBoxRFCCliente.Location = new System.Drawing.Point(33, 170);
             this.textBoxRFCCliente.Name = "textBoxRFCCliente";
             this.textBoxRFCCliente.Size = new System.Drawing.Size(207, 20);
             this.textBoxRFCCliente.TabIndex = 8;
+            this.textBoxRFCCliente.TextChanged += new System.EventHandler(this.textBoxRFCCliente_TextChanged);
             // 
             // textBoxNombreCliente
             // 
-            this.textBoxNombreCliente.Location = new System.Drawing.Point(342, 121);
+            this.textBoxNombreCliente.Location = new System.Drawing.Point(342, 170);
             this.textBoxNombreCliente.Name = "textBoxNombreCliente";
             this.textBoxNombreCliente.ReadOnly = true;
             this.textBoxNombreCliente.Size = new System.Drawing.Size(207, 20);
@@ -144,7 +146,7 @@
             // labelRFCCliente
             // 
             this.labelRFCCliente.AutoSize = true;
-            this.labelRFCCliente.Location = new System.Drawing.Point(33, 102);
+            this.labelRFCCliente.Location = new System.Drawing.Point(33, 151);
             this.labelRFCCliente.Name = "labelRFCCliente";
             this.labelRFCCliente.Size = new System.Drawing.Size(63, 13);
             this.labelRFCCliente.TabIndex = 12;
@@ -153,7 +155,7 @@
             // labelNombreCliente
             // 
             this.labelNombreCliente.AutoSize = true;
-            this.labelNombreCliente.Location = new System.Drawing.Point(342, 102);
+            this.labelNombreCliente.Location = new System.Drawing.Point(342, 151);
             this.labelNombreCliente.Name = "labelNombreCliente";
             this.labelNombreCliente.Size = new System.Drawing.Size(79, 13);
             this.labelNombreCliente.TabIndex = 13;
@@ -168,10 +170,10 @@
             this.PrecioProducto,
             this.CantidadProducto,
             this.ImporteProducto});
-            this.dataGridViewNota.Location = new System.Drawing.Point(33, 235);
+            this.dataGridViewNota.Location = new System.Drawing.Point(33, 216);
             this.dataGridViewNota.Name = "dataGridViewNota";
             this.dataGridViewNota.RowHeadersVisible = false;
-            this.dataGridViewNota.Size = new System.Drawing.Size(516, 346);
+            this.dataGridViewNota.Size = new System.Drawing.Size(516, 365);
             this.dataGridViewNota.TabIndex = 14;
             this.dataGridViewNota.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNota_CellContentClick);
             // 
@@ -282,6 +284,16 @@
             this.buttonSalir.Text = "Salir";
             this.buttonSalir.UseVisualStyleBackColor = true;
             // 
+            // buttonBuscar
+            // 
+            this.buttonBuscar.Location = new System.Drawing.Point(246, 170);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(75, 23);
+            this.buttonBuscar.TabIndex = 23;
+            this.buttonBuscar.Text = "Buscar";
+            this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
+            // 
             // Registrar_Venta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,6 +301,7 @@
             this.BackgroundImage = global::SurtiDesk.Properties.Resources.logo_surtidora_header;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(584, 681);
+            this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.buttonVender);
             this.Controls.Add(this.labelTotal);
@@ -316,6 +329,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Registrar_Venta";
+            this.Load += new System.EventHandler(this.Registrar_Venta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNota)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -350,5 +364,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn CantidadProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn ImporteProducto;
+        private System.Windows.Forms.Button buttonBuscar;
     }
 }

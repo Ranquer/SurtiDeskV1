@@ -12,14 +12,16 @@ namespace SurtiDesk
 {
     public partial class Desktop : Form
     {
-        public Desktop()
+        int idEmpleado;
+        public Desktop(int idEmpleado)
         {
             InitializeComponent();
+            this.idEmpleado = idEmpleado;
         }
 
         private void registrarVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Registrar_Venta registrar_Venta = new Registrar_Venta();
+            Registrar_Venta registrar_Venta = new Registrar_Venta(idEmpleado);
             registrar_Venta.Show();
             registrar_Venta.Focus();
         }

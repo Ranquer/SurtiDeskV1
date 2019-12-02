@@ -66,6 +66,7 @@
             this.textBoxFolio.ReadOnly = true;
             this.textBoxFolio.Size = new System.Drawing.Size(207, 20);
             this.textBoxFolio.TabIndex = 0;
+            this.textBoxFolio.TabStop = false;
             this.textBoxFolio.TextChanged += new System.EventHandler(this.textBoxFolio_TextChanged);
             // 
             // textBoxFecha
@@ -75,6 +76,8 @@
             this.textBoxFecha.ReadOnly = true;
             this.textBoxFecha.Size = new System.Drawing.Size(207, 20);
             this.textBoxFecha.TabIndex = 1;
+            this.textBoxFecha.TabStop = false;
+            this.textBoxFecha.TabStopChanged += new System.EventHandler(this.textBoxFolio_TextChanged);
             // 
             // textBoxCodigoEmpleado
             // 
@@ -83,6 +86,8 @@
             this.textBoxCodigoEmpleado.ReadOnly = true;
             this.textBoxCodigoEmpleado.Size = new System.Drawing.Size(207, 20);
             this.textBoxCodigoEmpleado.TabIndex = 2;
+            this.textBoxCodigoEmpleado.TabStop = false;
+            this.textBoxCodigoEmpleado.TabStopChanged += new System.EventHandler(this.textBoxSubTotal_TextChanged);
             // 
             // textBoxNombreEmpleado
             // 
@@ -91,6 +96,8 @@
             this.textBoxNombreEmpleado.ReadOnly = true;
             this.textBoxNombreEmpleado.Size = new System.Drawing.Size(207, 20);
             this.textBoxNombreEmpleado.TabIndex = 3;
+            this.textBoxNombreEmpleado.TabStop = false;
+            this.textBoxNombreEmpleado.TabStopChanged += new System.EventHandler(this.textBoxIVA_TextChanged);
             // 
             // labelFolio
             // 
@@ -98,7 +105,7 @@
             this.labelFolio.Location = new System.Drawing.Point(34, 49);
             this.labelFolio.Name = "labelFolio";
             this.labelFolio.Size = new System.Drawing.Size(29, 13);
-            this.labelFolio.TabIndex = 4;
+            this.labelFolio.TabIndex = 5;
             this.labelFolio.Text = "Folio";
             // 
             // labelCodigoEmpleado
@@ -133,7 +140,7 @@
             this.textBoxRFCCliente.Location = new System.Drawing.Point(33, 170);
             this.textBoxRFCCliente.Name = "textBoxRFCCliente";
             this.textBoxRFCCliente.Size = new System.Drawing.Size(207, 20);
-            this.textBoxRFCCliente.TabIndex = 8;
+            this.textBoxRFCCliente.TabIndex = 0;
             this.textBoxRFCCliente.TextChanged += new System.EventHandler(this.textBoxRFCCliente_TextChanged);
             this.textBoxRFCCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRFCCliente_KeyPress_1);
             // 
@@ -144,6 +151,8 @@
             this.textBoxNombreCliente.ReadOnly = true;
             this.textBoxNombreCliente.Size = new System.Drawing.Size(207, 20);
             this.textBoxNombreCliente.TabIndex = 9;
+            this.textBoxNombreCliente.TabStop = false;
+            this.textBoxNombreCliente.TabStopChanged += new System.EventHandler(this.textBoxTotal_TextChanged);
             // 
             // labelRFCCliente
             // 
@@ -176,7 +185,7 @@
             this.dataGridViewNota.Name = "dataGridViewNota";
             this.dataGridViewNota.RowHeadersVisible = false;
             this.dataGridViewNota.Size = new System.Drawing.Size(516, 365);
-            this.dataGridViewNota.TabIndex = 14;
+            this.dataGridViewNota.TabIndex = 1;
             this.dataGridViewNota.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNota_CellEndEdit);
             this.dataGridViewNota.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewNota_KeyPress);
             // 
@@ -225,6 +234,7 @@
             this.textBoxIVA.ReadOnly = true;
             this.textBoxIVA.Size = new System.Drawing.Size(100, 20);
             this.textBoxIVA.TabIndex = 15;
+            this.textBoxIVA.TabStop = false;
             this.textBoxIVA.TextChanged += new System.EventHandler(this.textBoxIVA_TextChanged);
             // 
             // textBoxSubTotal
@@ -234,6 +244,7 @@
             this.textBoxSubTotal.ReadOnly = true;
             this.textBoxSubTotal.Size = new System.Drawing.Size(100, 20);
             this.textBoxSubTotal.TabIndex = 16;
+            this.textBoxSubTotal.TabStop = false;
             this.textBoxSubTotal.TextChanged += new System.EventHandler(this.textBoxSubTotal_TextChanged);
             // 
             // labelIVA
@@ -260,7 +271,8 @@
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.ReadOnly = true;
             this.textBoxTotal.Size = new System.Drawing.Size(100, 20);
-            this.textBoxTotal.TabIndex = 19;
+            this.textBoxTotal.TabIndex = 11;
+            this.textBoxTotal.TabStop = false;
             this.textBoxTotal.TextChanged += new System.EventHandler(this.textBoxTotal_TextChanged);
             // 
             // labelTotal
@@ -269,7 +281,7 @@
             this.labelTotal.Location = new System.Drawing.Point(408, 649);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(31, 13);
-            this.labelTotal.TabIndex = 20;
+            this.labelTotal.TabIndex = 0;
             this.labelTotal.Text = "Total";
             // 
             // buttonVender
@@ -277,7 +289,7 @@
             this.buttonVender.Location = new System.Drawing.Point(33, 640);
             this.buttonVender.Name = "buttonVender";
             this.buttonVender.Size = new System.Drawing.Size(120, 23);
-            this.buttonVender.TabIndex = 21;
+            this.buttonVender.TabIndex = 3;
             this.buttonVender.Text = "Vender";
             this.buttonVender.UseVisualStyleBackColor = true;
             this.buttonVender.Click += new System.EventHandler(this.buttonVender_Click);
@@ -287,7 +299,7 @@
             this.buttonSalir.Location = new System.Drawing.Point(241, 640);
             this.buttonSalir.Name = "buttonSalir";
             this.buttonSalir.Size = new System.Drawing.Size(120, 23);
-            this.buttonSalir.TabIndex = 22;
+            this.buttonSalir.TabIndex = 4;
             this.buttonSalir.Text = "Salir";
             this.buttonSalir.UseVisualStyleBackColor = true;
             this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
@@ -305,7 +317,7 @@
             this.comboBoxMetodoDePago.Location = new System.Drawing.Point(258, 591);
             this.comboBoxMetodoDePago.Name = "comboBoxMetodoDePago";
             this.comboBoxMetodoDePago.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxMetodoDePago.TabIndex = 23;
+            this.comboBoxMetodoDePago.TabIndex = 2;
             // 
             // label1TipoDePago
             // 

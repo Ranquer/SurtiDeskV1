@@ -49,6 +49,17 @@ namespace SurtiDesk
 
         }
 
+        private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cambiarIVAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cambiar_IVA nuevo = new Cambiar_IVA();
+            nuevo.Show();
+        }
+
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form1 inicioSecion = new Form1();

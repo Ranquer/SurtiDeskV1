@@ -60,7 +60,7 @@
             this.textBoxPorcentaje.Location = new System.Drawing.Point(176, 236);
             this.textBoxPorcentaje.Name = "textBoxPorcentaje";
             this.textBoxPorcentaje.Size = new System.Drawing.Size(230, 20);
-            this.textBoxPorcentaje.TabIndex = 2;
+            this.textBoxPorcentaje.TabIndex = 0;
             // 
             // labelPorcentaje
             // 
@@ -93,16 +93,17 @@
             this.buttonGuardar.Location = new System.Drawing.Point(176, 354);
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.Size = new System.Drawing.Size(75, 23);
-            this.buttonGuardar.TabIndex = 6;
+            this.buttonGuardar.TabIndex = 1;
             this.buttonGuardar.Text = "Guardar";
             this.buttonGuardar.UseVisualStyleBackColor = true;
+            this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
             // 
             // buttonSalir
             // 
             this.buttonSalir.Location = new System.Drawing.Point(330, 353);
             this.buttonSalir.Name = "buttonSalir";
             this.buttonSalir.Size = new System.Drawing.Size(75, 23);
-            this.buttonSalir.TabIndex = 7;
+            this.buttonSalir.TabIndex = 2;
             this.buttonSalir.Text = "Salir";
             this.buttonSalir.UseVisualStyleBackColor = true;
             // 

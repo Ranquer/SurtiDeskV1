@@ -32,9 +32,16 @@ namespace SurtiDesk
         }
         private void textBoxRFCCliente_TextChanged(object sender, EventArgs e)
         {
+            if (textBoxRFCCliente.Text == "")
+            {
+                textBoxNombreCliente.Text = "";
+            }
+            else
+            {
                 conexion.Open();
-                MySqlCommand comando = new MySqlCommand(String.Format("select * from cliente where idCliente = " + textBoxRFCCliente.Text + ""), conexion);
-                MySqlDataReader reader = comando.ExecuteReader();
+
+                MySqlCommand cmd = new MySqlCommand(String.Format("select * from cliente where idCliente = " + textBoxRFCCliente.Text + ""), conexion);
+                MySqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
                     textBoxNombreCliente.Text = reader["nombre"].ToString();
@@ -44,6 +51,7 @@ namespace SurtiDesk
                     textBoxNombreCliente.Clear();
                 }
                 conexion.Close();
+            }
         }
         private void Registrar_Venta_Load(object sender, EventArgs e)
         {
@@ -112,11 +120,25 @@ namespace SurtiDesk
         {
             this.Close();
         }
+
+        public bool buscarElementoList(List<int> list, int elemento)
+        {
+            int i = 0;
+            while(i < list.Count)
+            {
+                if (list[i] == elemento)
+                    return true;
+                i++;
+            }
+            return false;
+        }
         private void dataGridViewNota_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            List<int> ids = new List<int>();
             conexion.Open();
-            if (dataGridViewNota.Rows[e.RowIndex].Cells[0].Value.ToString() != "")
+            if (dataGridViewNota.Rows[e.RowIndex].Cells[0].Value.ToString() != "" && buscarElementoList(ids, Convert.ToInt32(dataGridViewNota.Rows[e.RowIndex].Cells[0].Value.ToString()))!=true)
             {
+                ids.Add(Convert.ToInt32(dataGridViewNota.Rows[e.RowIndex].Cells[0].Value.ToString()));
                 MySqlCommand comando = new MySqlCommand(String.Format("select * from producto where idProducto = " + dataGridViewNota.CurrentCell.Value.ToString() + ""), conexion);
                 MySqlDataReader reader = comando.ExecuteReader();
                 if (reader.Read())
@@ -124,12 +146,17 @@ namespace SurtiDesk
                     dataGridViewNota.Rows[e.RowIndex].Cells[1].Value = reader["descripcion"].ToString();
                     dataGridViewNota.Rows[e.RowIndex].Cells[2].Value = reader["precio"].ToString();
                 }
+                
+            }
+            else
+            {
+                MessageBox.Show("El elemento ya existe...");
             }
             conexion.Close();
             if (dataGridViewNota.Rows[e.RowIndex].Cells[3].Value != null)
             {
-                int valor = Int32.Parse(dataGridViewNota.Rows[e.RowIndex].Cells[2].Value.ToString()) * Int32.Parse(dataGridViewNota.Rows[e.RowIndex].Cells[3].Value.ToString());
-                dataGridViewNota.Rows[e.RowIndex].Cells[4].Value = valor.ToString();
+                int valorI = Int32.Parse(dataGridViewNota.Rows[e.RowIndex].Cells[2].Value.ToString()) * Int32.Parse(dataGridViewNota.Rows[e.RowIndex].Cells[3].Value.ToString());
+                dataGridViewNota.Rows[e.RowIndex].Cells[4].Value = valorI.ToString();
 
             }
             double total = 0;
@@ -174,8 +201,9 @@ namespace SurtiDesk
                     MySqlCommand cmd = new MySqlCommand(query, conexion);
                     cmd.Parameters.AddWithValue("@paramfecha", Convert.ToString(DateTime.Now.ToString("yyyy/MM/dd")));
                     cmd.ExecuteNonQuery();
-                    guardarDetalleVenta();
                     conexion.Close();
+                    guardarDetalleVenta();
+                    
                 }
             }
             limpiarTodo();
@@ -234,33 +262,38 @@ namespace SurtiDesk
         }
         private void guardarDetalleVenta()
         {
-            string query = "insert into detalle_venta(folio, idProducto, cantidad, precio) values(@folio, @idProducto, @cantidad, @precio)";
+            conexion.Open();
+            string query = "insert into detalle_venta values(@folio, @idProducto, @cantidad, @precio)";
+            int stock;
             MySqlCommand cmd = new MySqlCommand(query, conexion);
             try
             {
                 foreach (DataGridViewRow row in dataGridViewNota.Rows)
                 {
+                    stock = Convert.ToInt32(reader["stock"].ToString());
                     cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@folio", textBoxFolio.Text.ToString());
-                    cmd.Parameters.AddWithValue("@idProducto", Convert.ToString(row.Cells["Codigo"].Value));
-                    cmd.Parameters.AddWithValue("@cantidad", Convert.ToString(row.Cells["CantidadProducto"].Value));
-                    cmd.Parameters.AddWithValue("@precio", Convert.ToString(row.Cells["PrecioProducto"].Value));
-                    cmd.ExecuteNonQuery();
+                    if (Convert.ToInt32(row.Cells["CodigoProducto"].Value) != 0)
+                    {
+                        
+                        cmd.Parameters.AddWithValue("@folio", textBoxFolio.Text.ToString());
+                        cmd.Parameters.AddWithValue("@idProducto", Convert.ToInt32(row.Cells["CodigoProducto"].Value));
+                        cmd.Parameters.AddWithValue("@cantidad", Convert.ToString(row.Cells["CantidadProducto"].Value));
+
+                        cmd.Parameters.AddWithValue("@precio", Convert.ToString(row.Cells["PrecioProducto"].Value));
+                        cmd.ExecuteNonQuery();
+                    }
                 }
                 MessageBox.Show("Venta realizada con exito");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar");
+                MessageBox.Show("Error" + ex + "");
             }
-            finally
-            {
-                
-            }
+            conexion.Close();
         }
         private void limpiarTodo()
         {
-            while(dataGridViewNota.Rows.Count > 1)
+            while (dataGridViewNota.Rows.Count > 1)
             {
                 dataGridViewNota.Rows.Remove(dataGridViewNota.CurrentRow);
             }
@@ -268,6 +301,11 @@ namespace SurtiDesk
             textBoxNombreCliente.Clear();
             comboBoxMetodoDePago.SelectedIndex = -1;
             Registrar_Venta_Load(this, null);
+        }
+
+        private void dataGridViewNota_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

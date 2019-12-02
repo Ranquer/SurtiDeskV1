@@ -186,6 +186,7 @@
             this.dataGridViewNota.RowHeadersVisible = false;
             this.dataGridViewNota.Size = new System.Drawing.Size(516, 365);
             this.dataGridViewNota.TabIndex = 1;
+            this.dataGridViewNota.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNota_CellContentClick_1);
             this.dataGridViewNota.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNota_CellEndEdit);
             this.dataGridViewNota.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewNota_KeyPress);
             // 

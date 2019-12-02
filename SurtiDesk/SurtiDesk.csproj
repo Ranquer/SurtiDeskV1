@@ -123,6 +123,7 @@
       <DependentUpon>Modificar Producto.cs</DependentUpon>
     </Compile>
     <Compile Include="mysql\Conexion.cs" />
+    <Compile Include="producto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registrar Cliente.cs">

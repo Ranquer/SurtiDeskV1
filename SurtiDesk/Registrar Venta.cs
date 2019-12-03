@@ -264,13 +264,14 @@ namespace SurtiDesk
         {
             conexion.Open();
             string query = "insert into detalle_venta values(@folio, @idProducto, @cantidad, @precio)";
+            string query1 = "slect from producto"; 
             int stock;
             MySqlCommand cmd = new MySqlCommand(query, conexion);
             try
             {
                 foreach (DataGridViewRow row in dataGridViewNota.Rows)
                 {
-                    stock = Convert.ToInt32(reader["stock"].ToString());
+                    
                     cmd.Parameters.Clear();
                     if (Convert.ToInt32(row.Cells["CodigoProducto"].Value) != 0)
                     {

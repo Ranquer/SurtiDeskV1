@@ -284,11 +284,20 @@ namespace SurtiDesk
         {
             conexion.Open();
             string query = "insert into detalle_venta values(@folio, @idProducto, @cantidad, @precio)";
+<<<<<<< HEAD
+=======
+            string query1 = "slect from producto"; 
+            int stock;
+>>>>>>> 5192050d689eab40bac55db5292ddc436658e729
             MySqlCommand cmd = new MySqlCommand(query, conexion);
             try
             {
                 foreach (DataGridViewRow row in dataGridViewNota.Rows)
                 {
+<<<<<<< HEAD
+=======
+                    
+>>>>>>> 5192050d689eab40bac55db5292ddc436658e729
                     cmd.Parameters.Clear();
                     if (Convert.ToInt32(row.Cells["CodigoProducto"].Value) != 0)
                     {

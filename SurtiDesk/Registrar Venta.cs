@@ -84,7 +84,7 @@ namespace SurtiDesk
             }
             conexion.Close();
             conexion.Open();
-            comando = new MySqlCommand(String.Format("select * from IVA order by idIVA"), conexion);
+            comando = new MySqlCommand(String.Format("select * from IVA order by idIVA desc"), conexion);
             reader = comando.ExecuteReader();
             if (reader.Read())
             {
@@ -113,7 +113,10 @@ namespace SurtiDesk
         }
         private void dataGridViewNota_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                dataGridViewNota.Rows.Add();
+            }
         }
         private void buttonSalir_Click(object sender, EventArgs e)
         {
@@ -121,9 +124,9 @@ namespace SurtiDesk
         }
         public bool buscarElementoList(List<int> list, int elemento)
         {
-            for(int i=0;i<list.Count();i++)
+            for (int i = 0; i < list.Count(); i++)
             {
-                if(list[i]==elemento)
+                if (list[i] == elemento)
                 {
                     return true;
                 }
@@ -147,10 +150,6 @@ namespace SurtiDesk
                         dataGridViewNota.Rows[e.RowIndex].Cells[1].Value = reader["descripcion"].ToString();
                         dataGridViewNota.Rows[e.RowIndex].Cells[2].Value = reader["precio"].ToString();
                     }
-                    else
-                    {
-                        dataGridViewNota.CurrentCell.Value = null;
-                    }
                     conexion.Close();
                 }
                 else if (dataGridViewNota.CurrentCell.Value == null)
@@ -158,7 +157,7 @@ namespace SurtiDesk
                     dataGridViewNota.Rows[e.RowIndex].Cells[1].Value = null;
                     dataGridViewNota.Rows[e.RowIndex].Cells[2].Value = null;
                 }
-                else 
+                else if (dataGridViewNota.CurrentCell.RowIndex != dataGridViewNota.Rows[0].Index)
                 {
                     dataGridViewNota.CurrentCell.Value = null;
                     MessageBox.Show("Elemento ya existente");
@@ -178,6 +177,10 @@ namespace SurtiDesk
                 textBoxSubTotal.Text = Convert.ToString(total);
                 double total1 = total * iva;
                 textBoxTotal.Text = Convert.ToString(total1);
+
+                conexion.Open();
+                MySqlCommand comando = new MySqlCommand();
+                conexion.Close();
             }
             catch (Exception error)
             {
@@ -198,13 +201,13 @@ namespace SurtiDesk
         }
         private void buttonVender_Click(object sender, EventArgs e)
         {
-            if(textBoxNombreCliente.Text == "")
+            if (textBoxNombreCliente.Text == "")
             {
                 MessageBox.Show("Porfavor Ingrese un RFC de cliente  valido...");
             }
             else
             {
-                if(comboBoxMetodoDePago.Text == "")
+                if (comboBoxMetodoDePago.Text == "")
                 {
                     MessageBox.Show("Favor de introducir un metodo de pago...");
                 }
@@ -219,19 +222,20 @@ namespace SurtiDesk
                     cmd.Parameters.AddWithValue("@total", Convert.ToDouble(textBoxTotal.Text));
                     cmd.Parameters.AddWithValue("@idEmpleado", Convert.ToInt32(textBoxCodigoEmpleado.Text));
                     cmd.Parameters.AddWithValue("@idCliente", Convert.ToInt32(textBoxRFCCliente.Text));
-                    cmd.Parameters.AddWithValue("@idIVA", Convert.ToInt32(textBoxIVA.Text));
-                    cmd.Parameters.AddWithValue("@sistemaDePago",  Convert.ToInt32(comboBoxMetodoDePago.SelectedIndex.ToString()));
+                    cmd.Parameters.AddWithValue("@idIVA", idIVA);
+                    cmd.Parameters.AddWithValue("@sistemaDePago", tipoPago(comboBoxMetodoDePago.SelectedIndex.ToString()));
                     cmd.ExecuteNonQuery();
                     conexion.Close();
                     guardarDetalleVenta();
+                    limpiarTodo();
                 }
             }
-            limpiarTodo();
+
         }
         private int tipoPago(string tipopago)
         {
             int opc = 0;
-            switch(tipopago)
+            switch (tipopago)
             {
                 case "Efectivo":
                     opc = 1;
@@ -256,8 +260,8 @@ namespace SurtiDesk
         }
         private string tipoPago(int tipoPago)
         {
-            string opc =  null;
-            switch(tipoPago)
+            string opc = null;
+            switch (tipoPago)
             {
                 case 1:
                     opc = "Efectivo";
@@ -284,20 +288,11 @@ namespace SurtiDesk
         {
             conexion.Open();
             string query = "insert into detalle_venta values(@folio, @idProducto, @cantidad, @precio)";
-<<<<<<< HEAD
-=======
-            string query1 = "slect from producto"; 
-            int stock;
->>>>>>> 5192050d689eab40bac55db5292ddc436658e729
             MySqlCommand cmd = new MySqlCommand(query, conexion);
             try
             {
                 foreach (DataGridViewRow row in dataGridViewNota.Rows)
                 {
-<<<<<<< HEAD
-=======
-                    
->>>>>>> 5192050d689eab40bac55db5292ddc436658e729
                     cmd.Parameters.Clear();
                     if (Convert.ToInt32(row.Cells["CodigoProducto"].Value) != 0)
                     {
@@ -309,7 +304,7 @@ namespace SurtiDesk
                     }
                 }
             }
-            catch(Exception error)
+            catch (Exception error)
             {
                 MessageBox.Show("Error: " + error + "");
             }
@@ -317,14 +312,23 @@ namespace SurtiDesk
         }
         private void limpiarTodo()
         {
-            while (dataGridViewNota.Rows.Count > 1)
+            try
             {
-                dataGridViewNota.Rows.Remove(dataGridViewNota.CurrentRow);
+                while (dataGridViewNota.Rows.Count > 0)
+                {
+                    dataGridViewNota.Rows.Remove(dataGridViewNota.CurrentRow);
+                    dataGridViewNota.Rows.Clear();
+                }
+                vs.Clear();
+                textBoxRFCCliente.Clear();
+                textBoxNombreCliente.Clear();
+                comboBoxMetodoDePago.SelectedIndex = -1;
+                Registrar_Venta_Load(this, null);
             }
-            textBoxRFCCliente.Clear();
-            textBoxNombreCliente.Clear();
-            comboBoxMetodoDePago.SelectedIndex = -1;
-            Registrar_Venta_Load(this, null);
+            catch(Exception error)
+            {
+                MessageBox.Show("Error: "+error+"");
+            }
         }
         private void dataGridViewNota_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {

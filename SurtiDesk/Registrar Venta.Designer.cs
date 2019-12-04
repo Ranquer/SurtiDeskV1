@@ -174,6 +174,7 @@
             // 
             // dataGridViewNota
             // 
+            this.dataGridViewNota.AllowUserToAddRows = false;
             this.dataGridViewNota.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewNota.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CodigoProducto,

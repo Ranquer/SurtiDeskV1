@@ -127,6 +127,7 @@
             this.Name = "Cambiar_IVA";
             this.ShowIcon = false;
             this.Text = "Cambiar_IVA";
+            this.Load += new System.EventHandler(this.Cambiar_IVA_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

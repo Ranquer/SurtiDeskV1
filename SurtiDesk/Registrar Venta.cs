@@ -147,6 +147,10 @@ namespace SurtiDesk
                         dataGridViewNota.Rows[e.RowIndex].Cells[1].Value = reader["descripcion"].ToString();
                         dataGridViewNota.Rows[e.RowIndex].Cells[2].Value = reader["precio"].ToString();
                     }
+                    else
+                    {
+                        dataGridViewNota.CurrentCell.Value = null;
+                    }
                     conexion.Close();
                 }
                 else if (dataGridViewNota.CurrentCell.Value == null)
@@ -174,10 +178,6 @@ namespace SurtiDesk
                 textBoxSubTotal.Text = Convert.ToString(total);
                 double total1 = total * iva;
                 textBoxTotal.Text = Convert.ToString(total1);
-
-                conexion.Open();
-                MySqlCommand comando = new MySqlCommand();
-                conexion.Close();
             }
             catch (Exception error)
             {

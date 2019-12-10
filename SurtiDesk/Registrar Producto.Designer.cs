@@ -37,7 +37,7 @@
             this.labelStock = new System.Windows.Forms.Label();
             this.textBoxStock = new System.Windows.Forms.TextBox();
             this.labelStockMinimo = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBoxStockMinimo = new System.Windows.Forms.TextBox();
             this.labelStockMaximo = new System.Windows.Forms.Label();
             this.textBoxStockMaximo = new System.Windows.Forms.TextBox();
             this.pictureBoxProducto = new System.Windows.Forms.PictureBox();
@@ -60,6 +60,7 @@
             // 
             this.textBoxCodigoDeProducto.Location = new System.Drawing.Point(93, 126);
             this.textBoxCodigoDeProducto.Name = "textBoxCodigoDeProducto";
+            this.textBoxCodigoDeProducto.ReadOnly = true;
             this.textBoxCodigoDeProducto.Size = new System.Drawing.Size(200, 20);
             this.textBoxCodigoDeProducto.TabIndex = 1;
             // 
@@ -120,12 +121,12 @@
             this.labelStockMinimo.TabIndex = 8;
             this.labelStockMinimo.Text = "Stock minimo";
             // 
-            // textBox5
+            // textBoxStockMinimo
             // 
-            this.textBox5.Location = new System.Drawing.Point(93, 298);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(200, 20);
-            this.textBox5.TabIndex = 9;
+            this.textBoxStockMinimo.Location = new System.Drawing.Point(93, 298);
+            this.textBoxStockMinimo.Name = "textBoxStockMinimo";
+            this.textBoxStockMinimo.Size = new System.Drawing.Size(200, 20);
+            this.textBoxStockMinimo.TabIndex = 9;
             // 
             // labelStockMaximo
             // 
@@ -159,6 +160,7 @@
             this.buttonSubirImagen.TabIndex = 13;
             this.buttonSubirImagen.Text = "Subir Imagen";
             this.buttonSubirImagen.UseVisualStyleBackColor = true;
+            this.buttonSubirImagen.Click += new System.EventHandler(this.buttonSubirImagen_Click);
             // 
             // buttonRegistrar
             // 
@@ -168,6 +170,7 @@
             this.buttonRegistrar.TabIndex = 14;
             this.buttonRegistrar.Text = "Registrar";
             this.buttonRegistrar.UseVisualStyleBackColor = true;
+            this.buttonRegistrar.Click += new System.EventHandler(this.buttonRegistrar_Click);
             // 
             // buttonSalir
             // 
@@ -177,6 +180,7 @@
             this.buttonSalir.TabIndex = 15;
             this.buttonSalir.Text = "Salir";
             this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
             // 
             // Registrar_Producto
             // 
@@ -191,7 +195,7 @@
             this.Controls.Add(this.pictureBoxProducto);
             this.Controls.Add(this.textBoxStockMaximo);
             this.Controls.Add(this.labelStockMaximo);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBoxStockMinimo);
             this.Controls.Add(this.labelStockMinimo);
             this.Controls.Add(this.textBoxStock);
             this.Controls.Add(this.labelStock);
@@ -206,6 +210,7 @@
             this.Name = "Registrar_Producto";
             this.ShowIcon = false;
             this.Text = "Registrar_Producto";
+            this.Load += new System.EventHandler(this.Registrar_Producto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProducto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -223,7 +228,7 @@
         private System.Windows.Forms.Label labelStock;
         private System.Windows.Forms.TextBox textBoxStock;
         private System.Windows.Forms.Label labelStockMinimo;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBoxStockMinimo;
         private System.Windows.Forms.Label labelStockMaximo;
         private System.Windows.Forms.TextBox textBoxStockMaximo;
         private System.Windows.Forms.PictureBox pictureBoxProducto;

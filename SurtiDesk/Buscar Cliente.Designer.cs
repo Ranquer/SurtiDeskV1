@@ -43,7 +43,7 @@
             this.labelEmail = new System.Windows.Forms.Label();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.labelLimiteDeCredito = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBoxLimiteDeCredito = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -168,12 +168,12 @@
             this.labelLimiteDeCredito.TabIndex = 14;
             this.labelLimiteDeCredito.Text = "Limite de credito";
             // 
-            // textBox8
+            // textBoxLimiteDeCredito
             // 
-            this.textBox8.Location = new System.Drawing.Point(146, 446);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(200, 20);
-            this.textBox8.TabIndex = 15;
+            this.textBoxLimiteDeCredito.Location = new System.Drawing.Point(146, 446);
+            this.textBoxLimiteDeCredito.Name = "textBoxLimiteDeCredito";
+            this.textBoxLimiteDeCredito.Size = new System.Drawing.Size(200, 20);
+            this.textBoxLimiteDeCredito.TabIndex = 15;
             // 
             // button1
             // 
@@ -183,6 +183,7 @@
             this.button1.TabIndex = 16;
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Buscar_Cliente
             // 
@@ -192,7 +193,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(584, 681);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.textBoxLimiteDeCredito);
             this.Controls.Add(this.labelLimiteDeCredito);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.labelEmail);
@@ -235,7 +236,7 @@
         private System.Windows.Forms.Label labelEmail;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label labelLimiteDeCredito;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBoxLimiteDeCredito;
         private System.Windows.Forms.Button button1;
     }
 }

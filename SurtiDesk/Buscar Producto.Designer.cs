@@ -31,7 +31,7 @@
             this.pictureBoxProducto = new System.Windows.Forms.PictureBox();
             this.textBoxStockMaximo = new System.Windows.Forms.TextBox();
             this.labelStockMaximo = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBoxStockMinimo = new System.Windows.Forms.TextBox();
             this.labelStockMinimo = new System.Windows.Forms.Label();
             this.textBoxStock = new System.Windows.Forms.TextBox();
             this.labelStock = new System.Windows.Forms.Label();
@@ -70,12 +70,12 @@
             this.labelStockMaximo.TabIndex = 23;
             this.labelStockMaximo.Text = "Stock maximo";
             // 
-            // textBox5
+            // textBoxStockMinimo
             // 
-            this.textBox5.Location = new System.Drawing.Point(134, 285);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(200, 20);
-            this.textBox5.TabIndex = 22;
+            this.textBoxStockMinimo.Location = new System.Drawing.Point(134, 285);
+            this.textBoxStockMinimo.Name = "textBoxStockMinimo";
+            this.textBoxStockMinimo.Size = new System.Drawing.Size(200, 20);
+            this.textBoxStockMinimo.TabIndex = 22;
             // 
             // labelStockMinimo
             // 
@@ -158,6 +158,7 @@
             this.buttonBuscar.TabIndex = 26;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
             // buttonSalir
             // 
@@ -167,6 +168,7 @@
             this.buttonSalir.TabIndex = 27;
             this.buttonSalir.Text = "Salir";
             this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
             // 
             // Buscar_Producto
             // 
@@ -180,7 +182,7 @@
             this.Controls.Add(this.pictureBoxProducto);
             this.Controls.Add(this.textBoxStockMaximo);
             this.Controls.Add(this.labelStockMaximo);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBoxStockMinimo);
             this.Controls.Add(this.labelStockMinimo);
             this.Controls.Add(this.textBoxStock);
             this.Controls.Add(this.labelStock);
@@ -206,7 +208,7 @@
         private System.Windows.Forms.PictureBox pictureBoxProducto;
         private System.Windows.Forms.TextBox textBoxStockMaximo;
         private System.Windows.Forms.Label labelStockMaximo;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBoxStockMinimo;
         private System.Windows.Forms.Label labelStockMinimo;
         private System.Windows.Forms.TextBox textBoxStock;
         private System.Windows.Forms.Label labelStock;

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.buttonBuscar = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBoxLimiteDeCredito = new System.Windows.Forms.TextBox();
             this.labelLimiteDeCredito = new System.Windows.Forms.Label();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.labelEmail = new System.Windows.Forms.Label();
@@ -57,13 +57,14 @@
             this.buttonBuscar.TabIndex = 33;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
-            // textBox8
+            // textBoxLimiteDeCredito
             // 
-            this.textBox8.Location = new System.Drawing.Point(146, 456);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(200, 20);
-            this.textBox8.TabIndex = 32;
+            this.textBoxLimiteDeCredito.Location = new System.Drawing.Point(146, 456);
+            this.textBoxLimiteDeCredito.Name = "textBoxLimiteDeCredito";
+            this.textBoxLimiteDeCredito.Size = new System.Drawing.Size(200, 20);
+            this.textBoxLimiteDeCredito.TabIndex = 32;
             // 
             // labelLimiteDeCredito
             // 
@@ -194,6 +195,7 @@
             this.buttonModificar.TabIndex = 34;
             this.buttonModificar.Text = "Modificar";
             this.buttonModificar.UseVisualStyleBackColor = true;
+            this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
             // 
             // buttonSalir
             // 
@@ -203,6 +205,7 @@
             this.buttonSalir.TabIndex = 35;
             this.buttonSalir.Text = "Salir";
             this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
             // 
             // Modificar_Cliente
             // 
@@ -212,7 +215,7 @@
             this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.buttonModificar);
             this.Controls.Add(this.buttonBuscar);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.textBoxLimiteDeCredito);
             this.Controls.Add(this.labelLimiteDeCredito);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.labelEmail);
@@ -241,7 +244,7 @@
         #endregion
 
         private System.Windows.Forms.Button buttonBuscar;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBoxLimiteDeCredito;
         private System.Windows.Forms.Label labelLimiteDeCredito;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label labelEmail;
